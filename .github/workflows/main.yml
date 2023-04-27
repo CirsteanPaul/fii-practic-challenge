@@ -23,13 +23,13 @@ jobs:
           dotnet-version: '5.0.x'
           
       - name: Restore
-        run: dotnet restore ./hackaton-backend.sln
+        run: dotnet restore ./hackatonBackend.sln
         
       - name: Build
-        run: dotnet build ./hackaton-backend.sln --configuration Release --no-restore
+        run: dotnet build ./hackatonBackend.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./hackaton-backend.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./hackatonBackend.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
