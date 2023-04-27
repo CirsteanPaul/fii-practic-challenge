@@ -21,16 +21,12 @@ var app = builder.Build();
 
 IWebHostEnvironment environment = builder.Environment;
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 if (environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+}
+if (!environment.IsProduction())
+{
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HackBackend v1"));
 }
