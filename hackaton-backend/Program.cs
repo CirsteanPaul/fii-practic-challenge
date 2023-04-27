@@ -25,11 +25,9 @@ if (environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-if (!environment.IsProduction())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HackBackend v1"));
-}
+
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HackBackend v1"));
 
 app.UseExceptionHandler(ExceptionHandling.Options);
 
