@@ -18,6 +18,11 @@ namespace hackatonBackend.Configuration.Extensions
         {
             var connectionString = GetConnectionString(configuration);
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
             services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString));
 
             services.AddControllers()
@@ -29,12 +34,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddEndpointsApiExplorer();
 
             services.AddServices();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy(CorsPolicy, builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            });
-
+            
             services.AddJwtAuthorization(configuration);
             //services.AddDataAccess(configuration);
 

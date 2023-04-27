@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace hackatonBackend.WebApi.Controllers
 {
-    [ApiController]
+    [AllowAnonymous]
     [Route("api/auth")]
     public class AuthController : ControllerBase
     {
