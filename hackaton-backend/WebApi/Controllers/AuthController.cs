@@ -20,7 +20,6 @@ namespace hackatonBackend.WebApi.Controllers
             this.authenticationService = authenticationService;
         }
 
-        [AllowAnonymous]
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ResponseModel))]
@@ -34,7 +33,7 @@ namespace hackatonBackend.WebApi.Controllers
         [HttpPost("register")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult RegisterUser(RegisterRequest registerRequest)
+        public ActionResult RegisterUser([FromBody] RegisterRequest registerRequest)
         {
             var registerDto = registerRequest.ToDto();
             authenticationService.RegisterUser(registerDto);
