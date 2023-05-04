@@ -28,7 +28,7 @@ namespace hackatonBackend.WebApi.Controllers
         }
 
         [HttpGet("blob")]
-        public ActionResult<BlobImageDto> GetBlob() {
+        public ActionResult<FileModel> GetBlob() {
             var blobImage = blobService.GetBlob("pfphunters.jpeg");
 
             return blobImage;
@@ -44,9 +44,9 @@ namespace hackatonBackend.WebApi.Controllers
         }
 
         [HttpPut("blob/update")]
-        public ActionResult UpdateBlob([FromBody] ImageRequest image)
+        public ActionResult UpdateBlob([FromForm] FileModel image)
         {
-            blobService.UploadBlob(image.Name, null, image.ContainerName);
+            blobService.UploadBlob(image.Name, image.File);
 
             return Ok();
         }

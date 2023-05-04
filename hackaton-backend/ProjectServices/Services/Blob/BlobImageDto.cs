@@ -1,16 +1,10 @@
 ﻿using System;
 namespace hackatonBackend.ProjectServices.Services.Blob
 {
-	public class BlobImageDto
+	public class FileModel
 	{
-		public BlobImageDto(BinaryData content, string contentType)
-		{
-			Content = content;
-			ContentType = contentType;
-		}
-
-		public BinaryData Content { get; set; }
-		public string ContentType { get; set; }
+		public IFormFile File { get; set; }
+		public string Name { get; set; }
 	}
 }
 

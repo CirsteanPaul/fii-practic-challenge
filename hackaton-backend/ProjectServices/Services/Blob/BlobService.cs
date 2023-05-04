@@ -14,14 +14,15 @@ namespace hackatonBackend.ProjectServices.Services.Blob
 			this.blobServiceClient = blobServiceClient;
 		}
 
-		public ActionResult<BlobImageDto> GetBlob(string name)
+		public ActionResult<FileModel> GetBlob(string name)
 		{
 			var containerClient = blobServiceClient.GetBlobContainerClient("hackaton-images");
 			var blobClient = containerClient.GetBlobClient(name);
 
 			var blobDownloadInfo = blobClient.DownloadContent();
 
-			return new BlobImageDto(blobDownloadInfo.Value.Content, blobDownloadInfo.Value.Details.ContentType);
+            return null;
+			//return new FileModel(blobDownloadInfo.Value.Content, blobDownloadInfo.Value.Details.ContentType);
 		}
 
         public ActionResult<bool> DeleteBlob(string name, string containerName)
@@ -35,9 +36,9 @@ namespace hackatonBackend.ProjectServices.Services.Blob
             return true;
         }
 
-        public ActionResult<bool> UploadBlob(string name, IFormFile file, string containerName)
+        public ActionResult<bool> UploadBlob(string name, IFormFile file)
         {
-            var containerClient = blobServiceClient.GetBlobContainerClient(containerName);
+            var containerClient = blobServiceClient.GetBlobContainerClient("hackaton-images");
 
             // checking if the file exist 
             // if the file exist it will be replaced
