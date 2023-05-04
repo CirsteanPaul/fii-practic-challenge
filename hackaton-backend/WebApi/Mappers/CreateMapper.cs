@@ -17,7 +17,7 @@ namespace hackatonBackend.WebApi.Mappers
             {
                 Title = model.Title,
                 Description = model.Description,
-                Importance = model.Importance,
+                Importance = (Importance)model.Importance,
             };
         }
     } 

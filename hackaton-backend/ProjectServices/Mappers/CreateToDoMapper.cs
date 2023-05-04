@@ -1,4 +1,5 @@
 ﻿using hackatonBackend.ProjectData.Entities;
+using hackatonBackend.ProjectServices.Services.Common.ToDo;
 using hackatonBackend.ProjectServices.Services.Common.ToDoList;
 
 namespace hackatonBackend.ProjectServices.Mappers
@@ -10,7 +11,7 @@ namespace hackatonBackend.ProjectServices.Mappers
             {
                 Title = ToDoDto.Title,
                 Description = ToDoDto.Description,
-                Importance = ToDoDto.Importance,
+                Importance = (short)ToDoDto.Importance,
             };
         }
     }

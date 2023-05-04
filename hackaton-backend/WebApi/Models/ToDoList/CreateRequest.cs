@@ -9,6 +9,6 @@ namespace hackatonBackend.WebApi.Models.ToDoList
         public string Title { get; set; }
         [Required] 
         public string Description { get; set; }
-        public Importance Importance { get; set;}
+        public short Importance { get; set;}
     }
 }

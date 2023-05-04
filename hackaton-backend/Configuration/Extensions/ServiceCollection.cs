@@ -3,6 +3,7 @@ using hackatonBackend.ProjectData.Infrastructure.Context;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectData.Repositories;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
+using hackatonBackend.ProjectServices.Services.Common.ToDoList;
 using hackatonBackend.WebApi.Middleware;
 using HackBackend.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IAppDbContext, AppDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IToDoService, ToDoService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IToDoRepository, ToDoRepository>();
         }

@@ -4,9 +4,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-
 
 ConfigurationManager configuration = builder.Configuration; // allows both to access and to set up the config
 
