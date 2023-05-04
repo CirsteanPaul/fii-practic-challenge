@@ -1,6 +1,6 @@
 ﻿namespace hackatonBackend.WebApi.Models.Authentication
 {
-    public class LoginResponse
+    public sealed class LoginResponse
     {
         public LoginResponse(string token)
         {

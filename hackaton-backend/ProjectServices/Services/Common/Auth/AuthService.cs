@@ -1,4 +1,5 @@
 ﻿using hackatonBackend.ProjectData.Entities;
+using hackatonBackend.ProjectData.Infrastructure.Context;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectServices.Constants;
 using hackatonBackend.ProjectServices.Exceptions;
@@ -13,6 +14,7 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IConfiguration config;
+
         public AuthService(IUnitOfWork unitOfWork, IConfiguration config)
         {
             this.unitOfWork = unitOfWork;
@@ -38,7 +40,7 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
 
         public void RegisterUser(RegisterDto dto)
         {
-            if(!IsValidEmail(dto.Email))
+            if (!IsValidEmail(dto.Email))
             {
                 throw new BusinessException(ErrorCodes.GenericRegisterError,
                     "Invalid email address");
@@ -46,15 +48,15 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
 
             var existingUser = unitOfWork.Users.GetUserByUsername(dto.Username);
 
-            if(existingUser is not null)
+            if (existingUser is not null)
             {
                 throw new BusinessException(ErrorCodes.GenericRegisterError,
                     "Username already in use");
             }
 
             var userEntity = dto.ToEntity();
-            unitOfWork.Users.Add(userEntity);
 
+            unitOfWork.Users.Add(userEntity);
             unitOfWork.SaveChanges();
         }
         

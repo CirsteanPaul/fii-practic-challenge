@@ -1,7 +1,9 @@
 ﻿using System;
+using Azure.Storage.Blobs;
 using hackatonBackend.ProjectData.Infrastructure.Context;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectData.Repositories;
+using hackatonBackend.ProjectServices.Services.Blob;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.WebApi.Middleware;
 using HackBackend.Data.Repositories;
@@ -17,6 +19,7 @@ namespace hackatonBackend.Configuration.Extensions
         public static void AddSetup(this IServiceCollection services, ConfigurationManager configuration)
         {
             var connectionString = GetConnectionString(configuration);
+            var blobString = GetBlobImagesString(configuration);
 
             services.AddCors(options =>
             {
@@ -24,6 +27,7 @@ namespace hackatonBackend.Configuration.Extensions
             });
 
             services.AddDbContext<AppDbContext>(o => o.UseSqlServer(connectionString));
+            services.AddSingleton(blob => new BlobServiceClient(blobString));
 
             services.AddControllers()
            .ConfigureApiBehaviorOptions(options =>
@@ -36,12 +40,11 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddServices();
             
             services.AddJwtAuthorization(configuration);
-            //services.AddDataAccess(configuration);
-
         }
 
         public static void AddServices(this IServiceCollection services)
         {
+            services.AddSingleton<IBlobService, BlobService>();
             services.AddScoped<IAppDbContext, AppDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthService, AuthService>();
@@ -51,6 +54,10 @@ namespace hackatonBackend.Configuration.Extensions
         private static string GetConnectionString(IConfiguration configuration)
         {
             return configuration.GetConnectionString("HackatonDatabase");
+        }
+
+        private static string GetBlobImagesString(IConfiguration configuration) {
+            return configuration.GetConnectionString("AzureBlobImages");
         }
     }
 }

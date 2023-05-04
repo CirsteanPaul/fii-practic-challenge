@@ -19,6 +19,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.16.0" />
+    <PackageReference Include="Azure.Identity" Version="1.8.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +40,8 @@
     <None Remove="ProjectData\Entities\" />
     <None Remove="ProjectData\Infrastructure\" />
     <None Remove="ProjectData\Repositories\" />
+    <None Remove="ProjectServices\Services\Blob\" />
+    <None Remove="WebApi\Models\Blob\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebApi\" />
@@ -56,5 +60,7 @@
     <Folder Include="ProjectData\Entities\" />
     <Folder Include="ProjectData\Infrastructure\" />
     <Folder Include="ProjectData\Repositories\" />
+    <Folder Include="ProjectServices\Services\Blob\" />
+    <Folder Include="WebApi\Models\Blob\" />
   </ItemGroup>
 </Project>
