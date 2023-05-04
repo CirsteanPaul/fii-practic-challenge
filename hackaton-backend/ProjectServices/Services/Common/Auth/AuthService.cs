@@ -19,7 +19,7 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
             this.config = config;
         }
 
-        public string LoginUser(string username, string password)
+        public string LoginUser(string username, string password)       
         {
             var user = unitOfWork.Users.GetUserByUsername(username);
 

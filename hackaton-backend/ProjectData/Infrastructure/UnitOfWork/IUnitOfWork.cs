@@ -8,6 +8,7 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
     public interface IUnitOfWork
     {
         public IUserRepository Users { get; }
+        public IToDoRepository ToDos { get; }
 
         int SaveChanges();
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

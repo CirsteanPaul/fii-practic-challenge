@@ -13,15 +13,17 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
 
         public UnitOfWork(
              IAppDbContext context,
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IToDoRepository toDoRepository)
         {
             this.context = context;
             this.Users = userRepository;
+            this.ToDos = toDoRepository;
         }
 
         #region Repositories
         public IUserRepository Users { get; private set; }
-
+        public IToDoRepository ToDos { get; private set; }
         #endregion
 
         public int SaveChanges()

@@ -46,6 +46,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IToDoRepository, ToDoRepository>();
         }
 
         private static string GetConnectionString(IConfiguration configuration)

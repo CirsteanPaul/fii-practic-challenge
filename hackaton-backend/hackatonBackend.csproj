@@ -40,21 +40,13 @@
     <None Remove="ProjectData\Repositories\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WebApi\" />
     <Folder Include="WebApi\Configuration\" />
-    <Folder Include="WebApi\Controllers\" />
     <Folder Include="WebApi\Exceptions\" />
     <Folder Include="WebApi\Extensions\" />
-    <Folder Include="WebApi\Mappers\" />
     <Folder Include="WebApi\Middleware\" />
-    <Folder Include="WebApi\Models\" />
-    <Folder Include="ProjectServices\" />
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\Extensions\" />
-    <Folder Include="ProjectData\" />
     <Folder Include="ProjectData\Configuration\" />
-    <Folder Include="ProjectData\Entities\" />
     <Folder Include="ProjectData\Infrastructure\" />
-    <Folder Include="ProjectData\Repositories\" />
   </ItemGroup>
 </Project>
