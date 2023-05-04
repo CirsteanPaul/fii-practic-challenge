@@ -5,6 +5,7 @@ using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectData.Repositories;
 using hackatonBackend.ProjectServices.Services.Blob;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
+using hackatonBackend.ProjectServices.Services.Users;
 using hackatonBackend.WebApi.Middleware;
 using HackBackend.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +49,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IAppDbContext, AppDbContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
         }
 

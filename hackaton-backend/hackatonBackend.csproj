@@ -42,6 +42,7 @@
     <None Remove="ProjectData\Repositories\" />
     <None Remove="ProjectServices\Services\Blob\" />
     <None Remove="WebApi\Models\Blob\" />
+    <None Remove="ProjectServices\Services\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebApi\" />
@@ -62,5 +63,6 @@
     <Folder Include="ProjectData\Repositories\" />
     <Folder Include="ProjectServices\Services\Blob\" />
     <Folder Include="WebApi\Models\Blob\" />
+    <Folder Include="ProjectServices\Services\Users\" />
   </ItemGroup>
 </Project>
