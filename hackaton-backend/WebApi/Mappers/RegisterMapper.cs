@@ -7,7 +7,7 @@ namespace hackatonBackend.WebApi.Mappers
     {
         public static RegisterDto ToDto(this RegisterRequest model)
         {
-            if(model is null)
+            if (model is null)
             {
                 return null;
             }

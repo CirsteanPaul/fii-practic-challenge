@@ -22,6 +22,7 @@ namespace hackatonBackend.WebApi.Controllers
 
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ResponseModel))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public ActionResult<LoginResponse> LoginUser([FromBody] LoginRequest login)
@@ -31,11 +32,13 @@ namespace hackatonBackend.WebApi.Controllers
         }
 
         [HttpPost("register")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public ActionResult RegisterUser([FromBody] RegisterRequest registerRequest)
         {
             var registerDto = registerRequest.ToDto();
+
             authenticationService.RegisterUser(registerDto);
 
             return StatusCode(201);
