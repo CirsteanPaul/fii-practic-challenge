@@ -1,6 +1,7 @@
-﻿namespace hackatonBackend.ProjectData.Entities
+﻿using System;
+namespace hackatonBackend.WebApi.Models
 {
-    public sealed class User
+    public class UserDetailsModel
     {
         public int Id { get; set; }
         public string Username { get; set; }
@@ -10,3 +11,4 @@
         public string Avatar { get; set; }
     }
 }
+
