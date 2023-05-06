@@ -19,7 +19,7 @@ namespace hackatonBackend.WebApi.Mappers
                 UserId = dto.UserId,
                 CodingScore = dto.CodingScore,
                 PsychologyScore = dto.PsychologyScore,
-                User = dto.User.ToApiModel(),
+                User = dto.User.ToApiUserModel(),
                 AgreeableScore = dto.AgreeableScore,
                 CalmScore = dto.CalmScore,
                 Gender = dto.Gender,

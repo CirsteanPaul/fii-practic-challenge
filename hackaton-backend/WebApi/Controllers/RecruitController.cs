@@ -25,6 +25,13 @@ namespace hackatonBackend.WebApi.Controllers
 
 			return Ok(recruit.ToApiModel());
 		}
+
+		[HttpGet("all")]
+		public ActionResult<IEnumerable<RecruitModel>> GetRecruitsInOrder() {
+			var recruits = recruitServices.GetAllRecruits();
+
+			return Ok(recruits.Select(x => x.ToApiModel()).ToList());
+		}
 	}
 }
 

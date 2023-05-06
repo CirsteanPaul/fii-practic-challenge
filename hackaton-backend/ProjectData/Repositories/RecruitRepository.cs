@@ -21,6 +21,15 @@ namespace hackatonBackend.ProjectData.Repositories
 				.Include(x => x.User)
 				.FirstOrDefault(x => x.UserId == id);
 		}
+
+		public IEnumerable<Recruit> GetAllRecruits()
+		{
+			return dbContext.Recruits
+				.Include(r => r.User)
+				.OrderByDescending(r => r.TotalScore)
+				.Take(10)
+				.ToList();
+		}
 	}
 }
 

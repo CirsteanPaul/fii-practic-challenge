@@ -31,6 +31,23 @@ namespace hackatonBackend.WebApi.Mappers
             };
         }
 
+        public static UserModel ToApiUserModel(this UserDto dto)
+        {
+            if (dto is null)
+            {
+                return null;
+            }
+
+            return new UserModel
+            {
+                Id = dto.Id,
+                Avatar = ImageMapper.AddPrefixToImage(dto.Avatar),
+                PositionRole = dto.PositionRole,
+                Description = dto.Description,
+                Name = dto.Name,
+            };
+        }
+
         public static UserDto ToDto(this UserDetailsModel model)
         {
             if (model is null)

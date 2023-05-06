@@ -20,7 +20,7 @@ namespace hackatonBackend.WebApi.Models.RecruitModel
         public int NumberOfFollowers { get; set; }
         public int NumberOfFollowings { get; set; }
 
-        public UserDetailsModel User { get; set; }
+        public UserModel User { get; set; }
     }
 }
 

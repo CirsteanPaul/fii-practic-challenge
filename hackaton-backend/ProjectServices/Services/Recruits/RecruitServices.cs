@@ -30,6 +30,14 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
 
 			return recruitDto;
 		}
-	}
+
+        public IEnumerable<RecruitDto> GetAllRecruits()
+		{
+			var recruits = unitOfWork.Recruits.GetAllRecruits();
+
+			return recruits.Select(r => r.ToDto()).ToList();
+		}
+
+    }
 }
 

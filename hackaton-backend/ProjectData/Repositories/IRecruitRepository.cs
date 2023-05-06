@@ -6,6 +6,7 @@ namespace hackatonBackend.ProjectData.Repositories
 	public interface IRecruitRepository
 	{
 		Recruit GetRecruitByUserId(int id);
+		IEnumerable<Recruit> GetAllRecruits();
     }
 }
 
