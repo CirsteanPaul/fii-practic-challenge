@@ -64,7 +64,6 @@ namespace hackatonBackend.WebApi.Mappers
                 Description = model.Description,
                 Email = model.Email,
                 Name = model.Name,
-                Password = model.Password
             };
         }
     }

@@ -23,7 +23,8 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
             this.Users = userRepository;
             this.Jobs = jobRepository;
             this.Cvs = cvRepository;
-            this.Recruits = recruitRepository;  
+            this.Recruits = recruitRepository;
+            this.Companies = companyRepository;
         }
 
         #region Repositories

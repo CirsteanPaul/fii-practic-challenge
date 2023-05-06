@@ -7,5 +7,6 @@ namespace hackatonBackend.ProjectData.Repositories
     {
         Company GetCompanyById(int id);
         Company GetCompanyByName(string name);
+        Company GetCompanyByUserId(int id);
     }
 }

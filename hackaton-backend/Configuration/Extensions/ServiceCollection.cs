@@ -4,6 +4,7 @@ using hackatonBackend.ProjectData.Infrastructure.Context;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectData.Repositories;
 using hackatonBackend.ProjectServices.Services.Blob;
+using hackatonBackend.ProjectServices.Services.Businesses;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Cvs;
 using hackatonBackend.ProjectServices.Services.Jobs;
@@ -61,6 +62,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IRecruitServices, RecruitServices>();
             services.AddScoped<IJobRepository, JobRepository>();
             services.AddScoped<IJobService, JobService>();
+            services.AddScoped<ICompanyService, CompanyService>();
         }
 
         private static string GetConnectionString(IConfiguration configuration)
