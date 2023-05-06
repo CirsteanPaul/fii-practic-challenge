@@ -10,6 +10,11 @@ namespace hackatonBackend.ProjectData.Infrastructure.Context
         { }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+        public DbSet<Recruit> Recruits { get; set; }
+        public DbSet<Cv> Cvs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
