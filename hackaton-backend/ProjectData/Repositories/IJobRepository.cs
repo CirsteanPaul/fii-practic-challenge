@@ -8,7 +8,6 @@ namespace hackatonBackend.ProjectData.Repositories
         Job GetJobByCompanyId (int companyId);
         Job GetJobByName(string name);
         Job GetJobById (int id);
-
-
+        IEnumerable<Job> GetAllJobsByCompany(int companyId);
     }
 }

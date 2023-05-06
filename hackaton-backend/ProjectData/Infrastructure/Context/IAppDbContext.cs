@@ -12,5 +12,6 @@ namespace hackatonBackend.ProjectData.Infrastructure.Context
         DbSet<Job> Jobs { get; set; }
         DbSet<Recruit> Recruits { get; set; }
         DbSet<Cv> Cvs { get; set; }
+        DbSet<Question> Questions { get; set; }
     }
 }

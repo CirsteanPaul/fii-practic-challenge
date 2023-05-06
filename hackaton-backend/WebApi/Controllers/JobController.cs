@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace hackatonBackend.WebApi.Controllers
 {
+    public class GetJobsCompanyRequest {
+        public int? CompanyId { get; set; }
+    }
     [Route("/api/jobs")]
     public class JobController : ApplicationController
     {
@@ -28,6 +31,14 @@ namespace hackatonBackend.WebApi.Controllers
             jobService.CreateJob(requestDto);
 
             return StatusCode(StatusCodes.Status201Created);
+        }
+
+        [HttpGet("company")]
+        public ActionResult<IEnumerable<JobModel>> GetAllJobsOfCompany([FromBody] GetJobsCompanyRequest request)
+        {
+            var jobs = jobService.GetAllJobsOfCompany(request.CompanyId);
+
+            return jobs.Select(j => j.ToJobModel()).ToList();
         }
     }
 }

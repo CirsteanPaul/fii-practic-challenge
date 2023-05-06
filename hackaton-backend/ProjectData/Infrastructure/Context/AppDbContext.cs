@@ -15,6 +15,7 @@ namespace hackatonBackend.ProjectData.Infrastructure.Context
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Recruit> Recruits { get; set; }
         public DbSet<Cv> Cvs { get; set; }
+        public DbSet<Question> Questions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

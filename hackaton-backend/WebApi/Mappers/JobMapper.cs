@@ -21,6 +21,21 @@ namespace hackatonBackend.WebApi.Mappers
 				Name = model.Name,
 			};
 		}
-	}
+
+        public static JobModel ToJobModel(this JobDto dto)
+        {
+            if (dto is null)
+            {
+				return null;
+            }
+
+            return new JobModel
+            {
+                Id = dto.Id,
+                Description = dto.Description,
+                Name = dto.Name,
+            };
+        }
+    }
 }
 

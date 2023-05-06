@@ -63,6 +63,7 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IJobRepository, JobRepository>();
             services.AddScoped<IJobService, JobService>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
         }
 
         private static string GetConnectionString(IConfiguration configuration)

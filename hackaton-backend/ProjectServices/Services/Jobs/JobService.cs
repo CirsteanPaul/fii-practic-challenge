@@ -32,6 +32,20 @@ namespace hackatonBackend.ProjectServices.Services.Jobs
 			unitOfWork.Jobs.Add(job);
 			unitOfWork.SaveChanges();
 		}
+
+		public IEnumerable<JobDto> GetAllJobsOfCompany(int? companyId) {
+			if (!companyId.HasValue) {
+				throw new BusinessException("There is no company id provided");
+			}
+
+			var companies = unitOfWork.Jobs.GetAllJobsByCompany(companyId.Value);
+
+			if(companies is null) {
+				return new List<JobDto>();
+			}
+
+			return companies.Select(x => x.ToDto()).ToList();
+		}
 	}
 }
 

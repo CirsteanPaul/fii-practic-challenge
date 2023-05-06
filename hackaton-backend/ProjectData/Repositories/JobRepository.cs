@@ -28,5 +28,9 @@ namespace hackatonBackend.ProjectData.Repositories
             return dbContext.Jobs
                 .FirstOrDefault(j => j.CompanyId == companyId);
         }
+        public IEnumerable<Job> GetAllJobsByCompany(int companyId)
+        {
+            return dbContext.Jobs.Where(x => x.CompanyId == companyId);
+        }
     }
 }

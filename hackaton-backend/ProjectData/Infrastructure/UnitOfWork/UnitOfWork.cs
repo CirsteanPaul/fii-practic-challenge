@@ -17,7 +17,8 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
             IJobRepository jobRepository,
             ICompanyRepository companyRepository,
             IRecruitRepository recruitRepository,
-            ICvRepository cvRepository)
+            ICvRepository cvRepository,
+            IQuestionRepository questionRepository)
         {
             this.context = context;
             this.Users = userRepository;
@@ -25,6 +26,7 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
             this.Cvs = cvRepository;
             this.Recruits = recruitRepository;
             this.Companies = companyRepository;
+            this.Questions = questionRepository;
         }
 
         #region Repositories
@@ -33,6 +35,7 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
         public ICompanyRepository Companies{ get; private set; }
         public ICvRepository Cvs { get; private set; }
         public IRecruitRepository Recruits { get; private set; }
+        public IQuestionRepository Questions { get; private set; }
 
         #endregion
 

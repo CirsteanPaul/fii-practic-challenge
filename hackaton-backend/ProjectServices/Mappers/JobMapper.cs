@@ -19,6 +19,21 @@ namespace hackatonBackend.ProjectServices.Mappers
 			};
 		}
 
+        public static JobDto ToDto(this Job entity)
+        {
+            if (entity is null)
+            {
+                return null;
+            }
+
+            return new JobDto
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                Description = entity.Description
+            };
+        }
+
         public static Job ToEntity(this CreateJobDto dto)
         {
             if (dto is null)
