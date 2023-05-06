@@ -1,5 +1,5 @@
 ﻿using System;
-namespace hackatonBackend.ProjectServices.Services.User
+namespace hackatonBackend.ProjectServices.Services.Users
 {
 	public enum PositionRole
 	{

@@ -3,6 +3,7 @@ using hackatonBackend.ProjectData.Entities;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectServices.Exceptions;
 using hackatonBackend.ProjectServices.Mappers;
+using hackatonBackend.ProjectServices.Services.Common.Auth;
 
 namespace hackatonBackend.ProjectServices.Services.Users
 {
@@ -15,7 +16,7 @@ namespace hackatonBackend.ProjectServices.Services.Users
 			this.unitOfWork = unitOfWork;
 		}
 
-		public UserDetailsDto GetDetails(int? userId)
+		public UserDto GetDetails(int? userId)
 		{
 			if (!userId.HasValue)
 			{
