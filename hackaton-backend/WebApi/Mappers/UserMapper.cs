@@ -27,7 +27,6 @@ namespace hackatonBackend.WebApi.Mappers
                 Description = dto.Description,
                 Email = dto.Email,
                 Name = dto.Name,
-                Password = dto.Password
             };
         }
 
