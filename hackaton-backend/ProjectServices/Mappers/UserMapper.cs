@@ -23,6 +23,7 @@ namespace hackatonBackend.ProjectServices.Mappers
 				Role = (Role?)entity.Role,
 				PositionRole = (PositionRole?)entity.PositionRole,
 				Description = entity.Description,
+				Username = entity.Username,
 				Email = entity.Email,
 				Name = entity.Name,
 				Password = entity.Password
@@ -42,6 +43,7 @@ namespace hackatonBackend.ProjectServices.Mappers
                 Avatar = dto.Avatar,
                 Facebook = dto.Facebook,
                 Linkedin = dto.Linkedin,
+				Username = dto.Username,
                 Role = (short)dto.Role,
                 PositionRole = (short)dto.PositionRole,
                 Description = dto.Description,

@@ -6,6 +6,7 @@ namespace hackatonBackend.ProjectServices.Services.Users
 	public interface IUserService
 	{
         UserDto GetDetails(int? userId);
+        void ChangeDetails(int? userId, UserDto userDto);
     }
 }
 

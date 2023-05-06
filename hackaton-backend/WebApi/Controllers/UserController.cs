@@ -26,6 +26,17 @@ namespace hackatonBackend.WebApi.Controllers
 
 			return Ok(userDto.ToApiModel());
 		}
-	}
+
+		[HttpPut]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+		public ActionResult ChangeUserDetails([FromBody] UserDetailsModel changes)
+		{
+			userService.ChangeDetails(UserId, changes.ToDto());
+
+			return Ok();
+		}
+    }
 }
 

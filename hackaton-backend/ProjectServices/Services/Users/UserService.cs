@@ -31,7 +31,41 @@ namespace hackatonBackend.ProjectServices.Services.Users
 			}
 
 			return user.ToDto();
-		} 
-	}
+		}
+
+        public void ChangeDetails(int? userId, UserDto userDto)
+		{
+			if (!userId.HasValue)
+			{
+				throw new AuthorizationException("You're not logged in");
+            }
+
+			if (userDto is null)
+			{
+				return;
+			}
+
+			var user = unitOfWork.Users.GetUserById(userId.Value);
+
+			if (!string.IsNullOrEmpty(userDto.Avatar))
+			{
+				user.Avatar = userDto.Avatar;
+			}
+
+			if (!string.IsNullOrEmpty(userDto.Description))
+			{
+				user.Description = userDto.Description;
+			}
+
+			if(userDto.PositionRole is not null)
+			{
+				user.PositionRole = (short)userDto.PositionRole;
+			}
+			// verify if userDto is null if not change data
+
+			unitOfWork.Users.Update(user);
+			unitOfWork.SaveChanges();
+		}
+    }
 }
 
