@@ -1,11 +1,10 @@
 ﻿using System;
-using hackatonBackend.ProjectData.Entities;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Recruits;
 
-namespace hackatonBackend.ProjectServices.Services
+namespace hackatonBackend.WebApi.Models.RecruitModel
 {
-	public sealed class RecruitDto
+	public sealed class RecruitModel
 	{
         public int Id { get; set; }
         public int UserId { get; set; }
@@ -16,7 +15,7 @@ namespace hackatonBackend.ProjectServices.Services
         public int NumberOfFollowers { get; set; }
         public int NumberOfFollowings { get; set; }
 
-        public UserDto User { get; set; }
+        public UserDetailsModel User { get; set; }
     }
 }
 

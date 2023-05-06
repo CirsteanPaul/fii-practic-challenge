@@ -21,6 +21,7 @@ namespace hackatonBackend.WebApi.Mappers
                 Avatar = ImageMapper.AddPrefixToImage(dto.Avatar),
                 Facebook = dto.Facebook,
                 Linkedin = dto.Linkedin,
+                Username = dto.Username,
                 PositionRole = dto.PositionRole,
                 Role = dto.Role,
                 Description = dto.Description,
@@ -39,6 +40,7 @@ namespace hackatonBackend.WebApi.Mappers
 
             return new UserDto
             {
+                Username = model.Username,
                 Avatar = model.Avatar,
                 Facebook = model.Facebook,
                 Linkedin = model.Linkedin,

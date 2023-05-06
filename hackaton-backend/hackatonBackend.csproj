@@ -45,6 +45,7 @@
     <None Remove="ProjectServices\Services\Users\" />
     <None Remove="ProjectServices\Services\Recruits\" />
     <None Remove="ProjectServices\Services\Businesses\" />
+    <None Remove="WebApi\Models\RecruitModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebApi\" />
@@ -66,5 +67,6 @@
     <Folder Include="ProjectServices\Services\Users\" />
     <Folder Include="ProjectServices\Services\Recruits\" />
     <Folder Include="ProjectServices\Services\Businesses\" />
+    <Folder Include="WebApi\Models\RecruitModels\" />
   </ItemGroup>
 </Project>

@@ -13,14 +13,17 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
 
         public UnitOfWork(
              IAppDbContext context,
-            IUserRepository userRepository)
+            IUserRepository userRepository,
+            IRecruitRepository recruitRepository)
         {
             this.context = context;
             this.Users = userRepository;
+            this.Recruits = recruitRepository;
         }
 
         #region Repositories
         public IUserRepository Users { get; private set; }
+        public IRecruitRepository Recruits { get; private set; }
 
         #endregion
 
