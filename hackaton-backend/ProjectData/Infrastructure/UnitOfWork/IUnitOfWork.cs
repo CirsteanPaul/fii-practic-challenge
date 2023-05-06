@@ -11,7 +11,7 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
         public IJobRepository Jobs { get; }
         public ICompanyRepository Companies { get; }
         public ICvRepository Cvs { get; }
-
+        public IRecruitRepository Recruits { get; }
 
         int SaveChanges();
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);

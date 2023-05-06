@@ -5,7 +5,14 @@ namespace hackatonBackend.WebApi.Mappers
 	{
 		private readonly static string prefixUri = "https://hackatonpracticstorage.blob.core.windows.net/hackaton-images/";
 
-		public static string AddPrefixToImage(string image) => string.Concat(prefixUri, image);
+		public static string AddPrefixToImage(string image)
+		{
+			if (image is null) {
+				return null;
+			}
+
+			return string.Concat(prefixUri, image);
+		}
 	}
 }
 

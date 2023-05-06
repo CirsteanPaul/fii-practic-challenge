@@ -1,7 +1,7 @@
 ﻿using System;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 
-namespace hackatonBackend.ProjectServices.Services.Recruit
+namespace hackatonBackend.ProjectServices.Services.Recruits
 {
 	public sealed class ApplicationDto
 	{

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace hackatonBackend.ProjectServices.Services.Recruit
+namespace hackatonBackend.ProjectServices.Services.Recruits
 {
 	public enum PersonalityType
 	{
