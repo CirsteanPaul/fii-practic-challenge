@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using hackatonBackend.ProjectData.Infrastructure.Context;
+using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
+using hackatonBackend.ProjectData.Repositories;
 using hackatonBackend.ProjectServices.Services.Blob;
+using hackatonBackend.ProjectServices.Services.Questions;
 using hackatonBackend.WebApi.Models.Blob;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,18 +18,20 @@ namespace hackatonBackend.WebApi.Controllers
     public class HomeController : ControllerBase
     {
         private readonly IBlobService blobService;
-        private readonly IAppDbContext appDbContext;
+        private readonly IUnitOfWork unitofwork;
 
-        public HomeController(IBlobService blobService, IAppDbContext appDbContext)
+        public HomeController(IUnitOfWork unitofwork, IBlobService blobService, IAppDbContext appDbContext)
         {
             this.blobService = blobService;
-            this.appDbContext = appDbContext;
+            this.unitofwork = unitofwork;
         }
 
         // GET: /<controller>/
         [HttpGet("test")]
         public IActionResult Index()
         {
+            var questions = unitofwork.Questions.GetAllQuestionWithParams(new QuestionMetrics());
+            var games = unitofwork.Games.GetGame(1);
             return Ok();
         }
 
@@ -54,15 +59,15 @@ namespace hackatonBackend.WebApi.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        public ActionResult GetTest() {
-            var jobs = appDbContext.Jobs.ToList();
-            var applications = appDbContext.Applications.ToList();
-            var companies = appDbContext.Companies.ToList();
-            var recruits = appDbContext.Recruits.ToList();
-            var cvs = appDbContext.Cvs.ToList();
-            return Ok();
-        }
+        //[HttpGet]
+        //public ActionResult GetTest() {
+        //    var jobs = appDbContext.Jobs.ToList();
+        //    var applications = appDbContext.Applications.ToList();
+        //    var companies = appDbContext.Companies.ToList();
+        //    var recruits = appDbContext.Recruits.ToList();
+        //    var cvs = appDbContext.Cvs.ToList();
+        //    return Ok();
+        //}
     }
 }
 

@@ -8,6 +8,7 @@ using hackatonBackend.ProjectServices.Services.Businesses;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Cvs;
 using hackatonBackend.ProjectServices.Services.Jobs;
+using hackatonBackend.ProjectServices.Services.Questions;
 using hackatonBackend.ProjectServices.Services.Recruits;
 using hackatonBackend.ProjectServices.Services.Users;
 using hackatonBackend.WebApi.Middleware;
@@ -64,6 +65,8 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IJobService, JobService>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IGameRepository, GameRepository>();
+            services.AddScoped<IQuestionService, QuestionService>();
         }
 
         private static string GetConnectionString(IConfiguration configuration)

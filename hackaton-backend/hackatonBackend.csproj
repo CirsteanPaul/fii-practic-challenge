@@ -49,6 +49,7 @@
     <None Remove="ProjectServices\Services\Jobs\" />
     <None Remove="WebApi\Models\Jobs\" />
     <None Remove="WebApi\Models\Companies\" />
+    <None Remove="ProjectServices\Services\Questions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebApi\Configuration\" />
@@ -69,5 +70,6 @@
     <Folder Include="ProjectServices\Services\Jobs\" />
     <Folder Include="WebApi\Models\Jobs\" />
     <Folder Include="WebApi\Models\Companies\" />
+    <Folder Include="ProjectServices\Services\Questions\" />
   </ItemGroup>
 </Project>
