@@ -23,10 +23,11 @@ namespace hackatonBackend.ProjectServices.Mappers
                 ExtracurricularActivities = entity.ExtracurricularActivities,
             };
         }
-        public static Cv ToEntity(this CreateCvDto cvDto) 
+        public static Cv ToEntity(this CreateCvDto cvDto, int? UserId) 
         {
             return new Cv
             {
+                UserId = UserId.Value,
                 Experience = cvDto.Experience,
                 GeneralSkills = cvDto.GeneralSkills,
                 ExtracurricularActivities = cvDto.ExtracurricularActivities,

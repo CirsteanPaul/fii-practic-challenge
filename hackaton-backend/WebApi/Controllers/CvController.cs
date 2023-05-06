@@ -21,7 +21,11 @@ namespace hackatonBackend.WebApi.Controllers
         {
             this.cvServices = cvService;
         }
+
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
         public ActionResult<CvModel> GetCvByUserId([FromBody] GetCvRequest cvRequest)
         {
             var cv = cvServices.GetCvDetails(cvRequest.UserId);

@@ -23,14 +23,14 @@ namespace hackatonBackend.ProjectServices.Services.Cvs
                 throw new AuthorizationException("You're not logged in");
             }
 
-            var cvEntity = cvDto.ToEntity();
+            var cvEntity = cvDto.ToEntity(userId);
 
             unitOfWork.Cvs.Add(cvEntity);
             unitOfWork.SaveChanges();
         }
         public CvDto GetCvDetails(int? id)
         {
-            var cv = unitOfWork.Cvs.GetCvById(id.Value);
+            var cv = unitOfWork.Cvs.GetCvByUserId(id.Value);
             if (cv is null) 
             { 
                 throw new EntityNotFoundException(id.Value, typeof(Cv));
