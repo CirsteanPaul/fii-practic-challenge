@@ -19,7 +19,7 @@ namespace hackatonBackend.WebApi.Mappers
                 CreatedAt = dto.CreatedAt,
                 Description = dto.Description,
                 TypeOfCompany = dto.TypeOfCompany,
-                Logo = dto.Logo,
+                Logo = ImageMapper.AddPrefixToImage(dto.Logo),
                 User = dto.User.ToApiUserModel(),
                 UserId = dto.UserId
             };

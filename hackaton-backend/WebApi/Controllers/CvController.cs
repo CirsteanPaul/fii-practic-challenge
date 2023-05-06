@@ -42,6 +42,7 @@ namespace hackatonBackend.WebApi.Controllers
             cvServices.CreateCv(createCvDto, UserId);
             return StatusCode(201);
         }
+        [HttpPut]
         public ActionResult UpdateCv([FromBody] CvModel changes) 
         {
             cvServices.ChangeDetails(UserId, changes.ToDto());

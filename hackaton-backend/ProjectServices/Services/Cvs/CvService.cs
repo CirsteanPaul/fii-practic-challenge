@@ -49,11 +49,11 @@ namespace hackatonBackend.ProjectServices.Services.Cvs
                 return;
             }
             
-            var cv = unitOfWork.Cvs.GetCvById(id.Value);
+            var cv = unitOfWork.Cvs.GetCvByUserId(id.Value);
 
             if(cv.UserId != id.Value)
             {
-                throw new AuthorizationException("You're not allowed to change this CV")
+                throw new AuthorizationException("You're not allowed to change this CV");
             }
             if(!string.IsNullOrEmpty(cvDto.ExtracurricularActivities)) 
             {

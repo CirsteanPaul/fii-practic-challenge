@@ -14,7 +14,6 @@ namespace hackatonBackend.WebApi.Mappers
             return new CvModel
             {
                 Id = cvDto.Id,
-                UserId = cvDto.UserId,
                 GeneralSkills = cvDto.GeneralSkills,
                 Experience = cvDto.Experience,
                 ExtracurricularActivities = cvDto.ExtracurricularActivities,
