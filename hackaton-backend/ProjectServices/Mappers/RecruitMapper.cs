@@ -1,5 +1,6 @@
 ﻿using System;
 using hackatonBackend.ProjectData.Entities;
+using hackatonBackend.ProjectServices.Constants;
 using hackatonBackend.ProjectServices.Services;
 using hackatonBackend.ProjectServices.Services.Recruits;
 
@@ -22,6 +23,7 @@ namespace hackatonBackend.ProjectServices.Mappers
 				User = entity.User.ToDto(),
                 AgreeableScore = entity.AgreeableScore,
                 CalmScore = entity.CalmScore,
+                Gender = (Gender?)entity.Gender,
                 AssertiveScore = entity.AssertiveScore,
 				NumberOfFollowers = entity.NumberOfFollowers,
 				NumberOfFollowings = entity.NumberOfFollowings,
@@ -46,6 +48,7 @@ namespace hackatonBackend.ProjectServices.Mappers
                 User = dto.User.ToEntity(),
                 AgreeableScore = dto.AgreeableScore,
                 CalmScore = dto.CalmScore,
+                Gender = (short?)dto.Gender,
                 AssertiveScore = dto.AssertiveScore,
                 NumberOfFollowers = dto.NumberOfFollowers,
                 NumberOfFollowings = dto.NumberOfFollowings,

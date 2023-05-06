@@ -1,5 +1,6 @@
 ﻿using System;
 using hackatonBackend.ProjectData.Entities;
+using hackatonBackend.ProjectServices.Constants;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Recruits;
 
@@ -12,6 +13,7 @@ namespace hackatonBackend.ProjectServices.Services
         public double? CodingScore { get; set; }
         public double? PsychologyScore { get; set; }
         public PersonalityType? PersonalityType { get; set; }
+        public Gender? Gender { get; set; }
         public double? CalmScore { get; set; }
         public double? AssertiveScore { get; set; }
         public double? AgreeableScore { get; set; }

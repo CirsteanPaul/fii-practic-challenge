@@ -22,6 +22,7 @@ namespace hackatonBackend.WebApi.Mappers
                 User = dto.User.ToApiModel(),
                 AgreeableScore = dto.AgreeableScore,
                 CalmScore = dto.CalmScore,
+                Gender = dto.Gender,
                 AssertiveScore = dto.AssertiveScore,
                 NumberOfFollowers = dto.NumberOfFollowers,
                 NumberOfFollowings = dto.NumberOfFollowings,

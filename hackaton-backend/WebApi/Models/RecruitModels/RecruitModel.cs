@@ -1,4 +1,5 @@
 ﻿using System;
+using hackatonBackend.ProjectServices.Constants;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Recruits;
 
@@ -13,6 +14,7 @@ namespace hackatonBackend.WebApi.Models.RecruitModel
         public double? CalmScore { get; set; }
         public double? AssertiveScore { get; set; }
         public double? AgreeableScore { get; set; }
+        public Gender? Gender { get; set; }
         public PersonalityType? PersonalityType { get; set; }
         public double? TotalScore { get; set; }
         public int NumberOfFollowers { get; set; }
