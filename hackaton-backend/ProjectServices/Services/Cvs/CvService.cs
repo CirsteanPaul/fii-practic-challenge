@@ -24,8 +24,11 @@ namespace hackatonBackend.ProjectServices.Services.Cvs
             }
 
             var cvEntity = cvDto.ToEntity();
+
+            unitOfWork.Cvs.Add(cvEntity);
+            unitOfWork.SaveChanges();
         }
-        public CvDto GetCvDetais(int? id)
+        public CvDto GetCvDetails(int? id)
         {
             var cv = unitOfWork.Cvs.GetCvById(id.Value);
             if (cv is null) 

@@ -3,7 +3,7 @@
     public interface ICvService
     {
         void CreateCv(CreateCvDto cvDto, int? userId);
-        CvDto GetCvDetais(int? id);
+        CvDto GetCvDetails(int? id);
         void ChangeDetails(int? id, CvDto cvDto);
     }
 }
