@@ -33,5 +33,18 @@ namespace hackatonBackend.WebApi.Mappers
                 GeneralSkills = model.GeneralSkills,
             };
         }
+        public static CvDto ToDto(this CvModel model)
+        {
+            if (model is null)
+            {
+                return null;
+            }
+            return new CvDto
+            {
+                Experience = model.Experience,
+                ExtracurricularActivities = model.ExtracurricularActivities,
+                GeneralSkills = model.GeneralSkills,
+            };
+        }
     }
 }
