@@ -61,7 +61,20 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
 
             var userEntity = dto.ToEntity();
 
+            if (dto.Role == Role.Company)
+            {
+                userEntity.Company = new Company()
+                {
+                    CreatedAt = DateTime.Now
+                };
+            }
+            else if (dto.Role == Role.Recruit)
+            {
+                userEntity.Recruit = new Recruit();
+            }
+
             unitOfWork.Users.Add(userEntity);
+
             unitOfWork.SaveChanges();
         }
         

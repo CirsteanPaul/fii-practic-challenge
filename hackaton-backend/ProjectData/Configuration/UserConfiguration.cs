@@ -10,6 +10,14 @@ namespace hackatonBackend.ProjectData.Configuration
         {
             builder
                 .HasKey(c => c.Id);
+
+            builder.HasOne(x => x.Recruit)
+                .WithOne(t => t.User)
+                .HasForeignKey<Recruit>(t => t.UserId);
+
+            builder.HasOne(x => x.Company)
+               .WithOne(t => t.User)
+               .HasForeignKey<Company>(t => t.UserId);
         }
     }
 }

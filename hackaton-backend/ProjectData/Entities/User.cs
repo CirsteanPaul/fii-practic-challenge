@@ -13,5 +13,8 @@
         public string Description { get; set; }
         public string Email { get; set; }
         public string Avatar { get; set; }
+
+        public Recruit Recruit { get; set; }
+        public Company Company { get; set; }
     }
 }
