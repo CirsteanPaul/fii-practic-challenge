@@ -15,6 +15,13 @@ namespace hackatonBackend.ProjectData.Repositories
         }
         public Company GetCompanyById(int id) 
         { 
+            return dbContext.Companies
+                .FirstOrDefault(c => c.Id == id);
+        }
+        public Company GetCompanyByName(string name)
+        {
+            return dbContext.Companies
+                .FirstOrDefault(c => c.Name == name);
         }
     }
 }
