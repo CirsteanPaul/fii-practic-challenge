@@ -5,6 +5,7 @@ using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectData.Repositories;
 using hackatonBackend.ProjectServices.Services.Blob;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
+using hackatonBackend.ProjectServices.Services.Cvs;
 using hackatonBackend.ProjectServices.Services.Jobs;
 using hackatonBackend.ProjectServices.Services.Recruits;
 using hackatonBackend.ProjectServices.Services.Users;
@@ -53,6 +54,9 @@ namespace hackatonBackend.Configuration.Extensions
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
+            services.AddScoped<ICvRepository, CvRepository>();
+            services.AddScoped<ICvService, CvService>();
             services.AddScoped<IRecruitRepository, RecruitRepository>();
             services.AddScoped<IRecruitServices, RecruitServices>();
             services.AddScoped<IJobRepository, JobRepository>();

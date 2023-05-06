@@ -5,7 +5,7 @@ using hackatonBackend.ProjectData.Repositories;
 using Microsoft.EntityFrameworkCore;
 namespace hackatonBackend.ProjectData.Repositories
 {
-    public class CvRepository : Repository<Cv>, ICVRepository
+    public class CvRepository : Repository<Cv>, ICvRepository
     {
         private readonly IAppDbContext dbContext;
         public CvRepository(IAppDbContext dbContext): base((DbContext)dbContext)

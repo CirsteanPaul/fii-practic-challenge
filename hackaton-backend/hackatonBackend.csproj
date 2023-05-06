@@ -58,7 +58,6 @@
     <Folder Include="WebApi\Mappers\" />
     <Folder Include="WebApi\Middleware\" />
     <Folder Include="WebApi\Models\" />
-    <Folder Include="ProjectServices\" />
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\Extensions\" />
     <Folder Include="ProjectData\Configuration\" />

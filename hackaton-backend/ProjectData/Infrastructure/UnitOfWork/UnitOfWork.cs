@@ -12,21 +12,26 @@ namespace hackatonBackend.ProjectData.Infrastructure.UnitOfWork
         private readonly IAppDbContext context;
 
         public UnitOfWork(
-             IAppDbContext context,
+            IAppDbContext context,
             IUserRepository userRepository,
+            IJobRepository jobRepository,
+            ICompanyRepository companyRepository,
             IRecruitRepository recruitRepository,
-            IJobRepository jobRepository)
+            ICvRepository cvRepository)
         {
             this.context = context;
             this.Users = userRepository;
-            this.Recruits = recruitRepository;
             this.Jobs = jobRepository;
+            this.Cvs = cvRepository;
+            this.Recruits = recruitRepository;  
         }
 
         #region Repositories
         public IUserRepository Users { get; private set; }
-        public IRecruitRepository Recruits { get; private set; }
         public IJobRepository Jobs { get; private set; }
+        public ICompanyRepository Companies{ get; private set; }
+        public ICvRepository Cvs { get; private set; }
+        public IRecruitRepository Recruits { get; private set; }
 
         #endregion
 
