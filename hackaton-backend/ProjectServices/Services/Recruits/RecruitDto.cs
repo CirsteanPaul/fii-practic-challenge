@@ -12,6 +12,9 @@ namespace hackatonBackend.ProjectServices.Services
         public double? CodingScore { get; set; }
         public double? PsychologyScore { get; set; }
         public PersonalityType? PersonalityType { get; set; }
+        public double? CalmScore { get; set; }
+        public double? AssertiveScore { get; set; }
+        public double? AgreeableScore { get; set; }
         public double? TotalScore { get; set; }
         public int NumberOfFollowers { get; set; }
         public int NumberOfFollowings { get; set; }

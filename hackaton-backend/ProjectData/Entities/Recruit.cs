@@ -7,6 +7,9 @@ namespace hackatonBackend.ProjectData.Entities
 		public int UserId { get; set; }
 		public double? CodingScore { get; set; }
         public double? PsychologyScore { get; set; }
+		public double? CalmScore { get; set; }
+		public double? AssertiveScore { get; set; }
+		public double? AgreeableScore { get; set; }
 		public short? PersonalityType { get; set; }
 		public double? TotalScore { get; set; }
 		public int NumberOfFollowers { get; set; }
