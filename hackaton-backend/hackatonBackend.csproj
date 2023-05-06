@@ -58,11 +58,9 @@
     <Folder Include="ProjectServices\" />
     <Folder Include="Configuration\" />
     <Folder Include="Configuration\Extensions\" />
-    <Folder Include="ProjectData\" />
     <Folder Include="ProjectData\Configuration\" />
     <Folder Include="ProjectData\Entities\" />
     <Folder Include="ProjectData\Infrastructure\" />
-    <Folder Include="ProjectData\Repositories\" />
     <Folder Include="ProjectServices\Services\Blob\" />
     <Folder Include="WebApi\Models\Blob\" />
     <Folder Include="ProjectServices\Services\Users\" />
