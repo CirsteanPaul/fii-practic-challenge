@@ -12,5 +12,6 @@ namespace hackatonBackend.WebApi.Models.Authentication
 
         [Required]
         public string Email { get; set; }
+        public short? Role { get; set; }
     }
 }

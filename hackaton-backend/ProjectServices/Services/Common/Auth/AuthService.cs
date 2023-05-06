@@ -5,6 +5,7 @@ using hackatonBackend.ProjectServices.Constants;
 using hackatonBackend.ProjectServices.Exceptions;
 using hackatonBackend.ProjectServices.Mappers;
 using hackatonBackend.ProjectServices.Services.Common.Jwt;
+using hackatonBackend.ProjectServices.Services.Users;
 using Microsoft.Extensions.Configuration;
 using System.ComponentModel.DataAnnotations;
 
@@ -44,6 +45,10 @@ namespace hackatonBackend.ProjectServices.Services.Common.Auth
             {
                 throw new BusinessException(ErrorCodes.GenericRegisterError,
                     "Invalid email address");
+            }
+
+            if (dto.Role is null) {
+                throw new BusinessException("No role provided");
             }
 
             var existingUser = unitOfWork.Users.GetUserByUsername(dto.Username);

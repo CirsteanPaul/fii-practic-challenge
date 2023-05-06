@@ -1,5 +1,6 @@
 ﻿using hackatonBackend.WebApi.Models.Authentication;
 using hackatonBackend.ProjectServices.Services.Common.Auth;
+using hackatonBackend.ProjectServices.Services.Users;
 
 namespace hackatonBackend.WebApi.Mappers
 {
@@ -17,6 +18,7 @@ namespace hackatonBackend.WebApi.Mappers
                 Username = model.Username,
                 Password = model.Password,
                 Email = model.Email,
+                Role = (Role?)model.Role
             };
         }
     }
