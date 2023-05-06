@@ -3,7 +3,7 @@ using hackatonBackend.ProjectData.Infrastructure.Repository;
 
 namespace hackatonBackend.ProjectData.Repositories
 {
-    public interface ICVRepository : IRepository<Cv>
+    public interface ICvRepository : IRepository<Cv>
     {
         Cv GetCvByUserId(int userId);
         Cv GetCvById(int id);
