@@ -21,11 +21,17 @@ namespace hackatonBackend.WebApi.Controllers
 			this.companyService = companyService;
 		}
 
-		[HttpGet]
+		[HttpGet("info")]
 		public ActionResult<CompanyModel> GetCompanyInformations([FromBody] CompanyRequest request) {
 			var companyDetails = companyService.GetCompanyDetails(request.UserId);
 
 			return Ok(companyDetails.ToApiModel());
+		}
+		[HttpPut("change")]
+		public ActionResult ChangeCompanyDetails([FromBody] CompanyModel changes) 
+		{ 
+			companyService.ChangeDetails(UserId, changes.ToDto());
+			return Ok();
 		}
 	}
 }

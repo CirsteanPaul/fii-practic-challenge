@@ -66,6 +66,21 @@ namespace hackatonBackend.WebApi.Mappers
                 Name = model.Name,
             };
         }
+        public static UserDto ToDto(this UserModel model)
+        {
+            if (model is null)
+            {
+                return null;
+            }
+
+            return new UserDto
+            {
+                Avatar = model.Avatar,             
+                PositionRole = model.PositionRole,
+                Description = model.Description,
+                Name = model.Name,
+            };
+        }
     }
 }
 

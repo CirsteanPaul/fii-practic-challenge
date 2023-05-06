@@ -3,6 +3,7 @@ using hackatonBackend.ProjectData.Entities;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectServices.Exceptions;
 using hackatonBackend.ProjectServices.Mappers;
+using hackatonBackend.ProjectServices.Services.Common.Auth;
 
 namespace hackatonBackend.ProjectServices.Services.Recruits
 {
@@ -37,6 +38,57 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
 
 			return recruits.Select(r => r.ToDto()).ToList();
 		}
+		public void ChangeDetails(int? id, RecruitDto recruitDto) 
+		{
+            if (!id.HasValue)
+            {
+                throw new AuthorizationException("You're not logged in");
+            }
+            if (recruitDto is null)
+            {
+                return;
+            }
+			var recruit = unitOfWork.Recruits.GetRecruitByUserId (id.Value);
+            if (recruit.UserId != id.Value)
+            {
+                throw new AuthorizationException("You're not allowed to change this Account");
+            }
+            if (recruitDto.CodingScore is not null)
+			{
+				recruit.CodingScore = recruitDto.CodingScore;
+			}
+			if (recruitDto.PsychologyScore is not null) 
+			{ 
+			recruitDto.PsychologyScore = recruitDto.PsychologyScore;
+			}
+			if(recruitDto.CalmScore is not null)
+			{
+				recruitDto.CalmScore = recruitDto.CalmScore;
+			}
+			if(recruitDto.AssertiveScore is not null) 
+			{ 
+				recruitDto.AssertiveScore = recruitDto.AssertiveScore;
+			}
+			if(recruitDto.AgreeableScore is not null)
+			{
+				recruitDto.AgreeableScore = recruitDto.AgreeableScore;
+			}
+			if(recruitDto.TotalScore is not null) 
+			{
+			 recruitDto.TotalScore = recruitDto.TotalScore;
+			}
+			if(recruitDto.PersonalityType is not null)
+			{
+				recruit.PersonalityType = (short)recruitDto.PersonalityType;
+			}
+			if(recruitDto.Gender is not null)
+			{
+				recruit.Gender = (short)recruitDto.Gender;	
+			}
+            unitOfWork.Recruits.Update(recruit);
+            unitOfWork.SaveChanges();
+
+        }
 
     }
 }

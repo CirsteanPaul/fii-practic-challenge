@@ -10,7 +10,7 @@ namespace hackatonBackend.WebApi.Controllers
 		public int? UserId { get; set; }
 	}
 	[Route("api/recruits")]
-	public class RecruitController : ControllerBase
+	public class RecruitController : ApplicationController
 	{
 		private readonly IRecruitServices recruitServices;
 
@@ -31,6 +31,12 @@ namespace hackatonBackend.WebApi.Controllers
 			var recruits = recruitServices.GetAllRecruits();
 
 			return Ok(recruits.Select(x => x.ToApiModel()).ToList());
+		}
+		[HttpPut("change")]
+		public ActionResult ChangeRecruitDetails([FromBody] RecruitModel changes)
+		{
+			recruitServices.ChangeDetails( UserId , changes.ToDto());
+			return Ok();
 		}
 	}
 }

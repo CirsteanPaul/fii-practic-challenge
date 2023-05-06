@@ -21,7 +21,8 @@ namespace hackatonBackend.ProjectServices.Mappers
 				TypeOfCompany = (CompanyType?)entity.TypeOfCompany,
 				Logo = entity.Logo,
 				User = entity.User.ToDto(),
-				UserId = entity.UserId
+				UserId = entity.UserId,
+                Name = entity.Name
 			};
 		}
 
@@ -39,6 +40,7 @@ namespace hackatonBackend.ProjectServices.Mappers
                 Description = dto.Description,
                 TypeOfCompany = (short?)dto.TypeOfCompany,
                 Logo = dto.Logo,
+                Name = dto.Name,
                 User = dto.User.ToEntity(),
                 UserId = dto.UserId
             };

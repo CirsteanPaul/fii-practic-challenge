@@ -5,5 +5,6 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
 	{
 		RecruitDto GetRecruitData(int? userId);
 		IEnumerable<RecruitDto> GetAllRecruits();
+		void ChangeDetails(int? userId, RecruitDto recruitDto);
     }
 }

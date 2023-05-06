@@ -30,6 +30,29 @@ namespace hackatonBackend.WebApi.Mappers
                 PersonalityType = (PersonalityType?)dto.PersonalityType
             };
 		}
+public static RecruitDto ToDto(this RecruitModel model) 
+        { 
+            if (model is null)
+            {
+                return null;
+            }
+            return new RecruitDto
+            {
+                Id = model.Id,
+                User = model.User.ToDto(),
+                UserId = model.UserId,
+                CalmScore = model.CalmScore,
+                Gender = model.Gender,
+                AssertiveScore = model.AssertiveScore,
+                AgreeableScore = model.AgreeableScore,
+                CodingScore = model.CalmScore,
+                PsychologyScore = model.PsychologyScore,
+                PersonalityType = (PersonalityType?)model.PersonalityType,
+                TotalScore = model.TotalScore,
+                NumberOfFollowers = model.NumberOfFollowers,
+                NumberOfFollowings = model.NumberOfFollowings,
+            };
+        }
 	}
 }
 
