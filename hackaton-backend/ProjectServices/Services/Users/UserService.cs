@@ -63,6 +63,7 @@ namespace hackatonBackend.ProjectServices.Services.Users
 			{
 				user.PositionRole = (short)userDto.PositionRole;
 			}
+
 			if(!string.IsNullOrEmpty(userDto.Username))
 			{
                 var existingUser = unitOfWork.Users.GetUserByUsername(userDto.Username);
@@ -72,8 +73,8 @@ namespace hackatonBackend.ProjectServices.Services.Users
                     throw new BusinessException(ErrorCodes.GenericRegisterError,
                         "Username already in use");
                 }
-				else
-				{ user.Username = userDto.Username;}
+				
+				 user.Username = userDto.Username;
             }
 			if(!string.IsNullOrEmpty(userDto.Name))
 			{ 
@@ -90,7 +91,6 @@ namespace hackatonBackend.ProjectServices.Services.Users
                     throw new BusinessException(ErrorCodes.GenericRegisterError,
                         "Invalid email address");
                 }
-				else 
 					user.Email= userDto.Email;
             }
 			if(!string.IsNullOrEmpty (userDto.Linkedin))
