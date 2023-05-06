@@ -38,12 +38,23 @@ namespace hackatonBackend.ProjectServices.Services.Cvs
             return cv.ToDto();
         }
         public void ChangeDetails(int? id, CvDto cvDto) 
-        { 
-            if(cvDto is null)
+        {
+            if (!id.HasValue)
+            {
+                throw new AuthorizationException("You're not logged in");
+            }
+
+            if (cvDto is null)
             {
                 return;
             }
+            
             var cv = unitOfWork.Cvs.GetCvById(id.Value);
+
+            if(cv.UserId != id.Value)
+            {
+                throw new AuthorizationException("You're not allowed to change this CV")
+            }
             if(!string.IsNullOrEmpty(cvDto.ExtracurricularActivities)) 
             {
             cv.ExtracurricularActivities = cvDto.ExtracurricularActivities;

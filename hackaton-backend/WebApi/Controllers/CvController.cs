@@ -1,10 +1,10 @@
-﻿using hackatonBackend.ProjectServices.Services.Cvs;
+﻿using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
+using hackatonBackend.ProjectServices.Services.Cvs;
 using hackatonBackend.ProjectServices.Services.Recruits;
 using hackatonBackend.WebApi.Controllers;
 using hackatonBackend.WebApi.Mappers;
 using hackatonBackend.WebApi.Models.Cvs;
 using Microsoft.AspNetCore.Mvc;
-
 namespace hackatonBackend.WebApi.Controllers
 {
     public class GetCvRequest
@@ -42,5 +42,11 @@ namespace hackatonBackend.WebApi.Controllers
             cvServices.CreateCv(createCvDto, UserId);
             return StatusCode(201);
         }
+        public ActionResult UpdateCv([FromBody] CvModel changes) 
+        {
+            cvServices.ChangeDetails(UserId, changes.ToDto());
+                return Ok();
+        }
+
     }
 }
