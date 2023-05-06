@@ -42,9 +42,9 @@
     <None Remove="ProjectData\Repositories\" />
     <None Remove="ProjectServices\Services\Blob\" />
     <None Remove="WebApi\Models\Blob\" />
-    <None Remove="ProjectServices\Services\Business\" />
-    <None Remove="ProjectServices\Services\Recruit\" />
-    <None Remove="ProjectServices\Services\User\" />
+    <None Remove="ProjectServices\Services\Users\" />
+    <None Remove="ProjectServices\Services\Recruits\" />
+    <None Remove="ProjectServices\Services\Businesses\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="WebApi\" />
@@ -65,8 +65,8 @@
     <Folder Include="ProjectData\Repositories\" />
     <Folder Include="ProjectServices\Services\Blob\" />
     <Folder Include="WebApi\Models\Blob\" />
-    <Folder Include="ProjectServices\Services\Business\" />
-    <Folder Include="ProjectServices\Services\Recruit\" />
-    <Folder Include="ProjectServices\Services\User\" />
+    <Folder Include="ProjectServices\Services\Users\" />
+    <Folder Include="ProjectServices\Services\Recruits\" />
+    <Folder Include="ProjectServices\Services\Businesses\" />
   </ItemGroup>
 </Project>

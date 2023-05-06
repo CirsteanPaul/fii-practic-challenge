@@ -1,5 +1,6 @@
 ﻿using System;
 using hackatonBackend.ProjectData.Entities;
+using hackatonBackend.ProjectServices.Services.Common.Auth;
 using hackatonBackend.ProjectServices.Services.Recruit;
 
 namespace hackatonBackend.ProjectServices.Services
@@ -15,7 +16,7 @@ namespace hackatonBackend.ProjectServices.Services
         public int Followers { get; set; }
         public int Following { get; set; }
 
-        public User User { get; set; }
+        public UserDto User { get; set; }
     }
 }
 
