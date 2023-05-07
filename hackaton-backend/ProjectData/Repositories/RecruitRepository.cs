@@ -26,8 +26,8 @@ namespace hackatonBackend.ProjectData.Repositories
 		{
 			return dbContext.Recruits
 				.Include(r => r.User)
+				.Where(r => r.TotalScore != null)
 				.OrderByDescending(r => r.TotalScore)
-				.Take(10)
 				.ToList();
 		}
 	}

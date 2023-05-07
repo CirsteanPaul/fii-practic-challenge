@@ -35,7 +35,6 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
         public IEnumerable<RecruitDto> GetAllRecruits()
 		{
 			var recruits = unitOfWork.Recruits.GetAllRecruits();
-
 			return recruits.Select(r => r.ToDto()).ToList();
 		}
 		public void ChangeDetails(int? id, RecruitDto recruitDto) 
