@@ -59,23 +59,23 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
 			}
 			if (recruitDto.PsychologyScore is not null) 
 			{ 
-			recruitDto.PsychologyScore = recruitDto.PsychologyScore;
+			recruit.PsychologyScore = recruitDto.PsychologyScore;
 			}
 			if(recruitDto.CalmScore is not null)
 			{
-				recruitDto.CalmScore = recruitDto.CalmScore;
+				recruit.CalmScore = recruitDto.CalmScore;
 			}
 			if(recruitDto.AssertiveScore is not null) 
 			{ 
-				recruitDto.AssertiveScore = recruitDto.AssertiveScore;
+				recruit.AssertiveScore = recruitDto.AssertiveScore;
 			}
 			if(recruitDto.AgreeableScore is not null)
 			{
-				recruitDto.AgreeableScore = recruitDto.AgreeableScore;
+				recruit.AgreeableScore = recruitDto.AgreeableScore;
 			}
 			if(recruitDto.TotalScore is not null) 
 			{
-			 recruitDto.TotalScore = recruitDto.TotalScore;
+			 recruit.TotalScore = recruitDto.TotalScore;
 			}
 			if(recruitDto.PersonalityType is not null)
 			{
@@ -85,6 +85,7 @@ namespace hackatonBackend.ProjectServices.Services.Recruits
 			{
 				recruit.Gender = (short)recruitDto.Gender;	
 			}
+
             unitOfWork.Recruits.Update(recruit);
             unitOfWork.SaveChanges();
 

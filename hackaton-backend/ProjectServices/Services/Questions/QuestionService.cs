@@ -3,6 +3,8 @@ using hackatonBackend.ProjectData;
 using hackatonBackend.ProjectData.Entities;
 using hackatonBackend.ProjectData.Infrastructure.UnitOfWork;
 using hackatonBackend.ProjectServices.Exceptions;
+using hackatonBackend.ProjectServices.Services.Recruits;
+
 
 namespace hackatonBackend.ProjectServices.Services.Questions
 {
@@ -10,14 +12,21 @@ namespace hackatonBackend.ProjectServices.Services.Questions
 	{
 
 		private readonly IUnitOfWork unitOfWork;
+        private readonly IRecruitServices recruitService;
 
-		public QuestionService(IUnitOfWork unitOfWork)
+		public QuestionService(IUnitOfWork unitOfWork, IRecruitServices recruitService)
 		{
 			this.unitOfWork = unitOfWork;
+            this.recruitService = recruitService;
 		}
 
 		public void RespondQuestion(int gameId, int questionId, int answer) {
 			var game = unitOfWork.Games.GetGame(gameId);
+
+            if(game.QuestionId10 != 0) {
+                throw new BusinessException("Game is already finished");
+            }
+
             var question = unitOfWork.Questions.GetQuestionById(questionId);
 			AddQuestionToGame(game, questionId);
             if(answer == 1) {
@@ -41,6 +50,13 @@ namespace hackatonBackend.ProjectServices.Services.Questions
                 game.CurrentAgreeableScore += question.Answer3AgreeableScore;
                 game.CurrentAssertieScore += question.Answer3AssertiveScore;
                 game.CurrentPshycologyScore += question.Answer3PsychologyScore;
+            }
+
+            // game is over add data
+            if(game.QuestionId10 != 0) {
+                var newStats = CreateNewStatus(game);
+                recruitService.ChangeDetails(game.UserId, newStats);
+                return;
             }
 
             unitOfWork.SaveChanges();
@@ -186,6 +202,47 @@ namespace hackatonBackend.ProjectServices.Services.Questions
             }
         }
 
+        private RecruitDto CreateNewStatus(Game game) {
+            var newStats = new RecruitDto
+            {
+                PsychologyScore = game.CurrentPshycologyScore,
+                CalmScore = game.CurrentCalmScore,
+                AgreeableScore = game.CurrentAgreeableScore,
+                AssertiveScore = game.CurrentAssertieScore,
+
+            };
+
+            var newTotalScore = (newStats.PsychologyScore.Value + newStats.CalmScore.Value
+                + newStats.AssertiveScore.Value + newStats.AgreeableScore.Value) / 5;
+
+            newStats.TotalScore = newTotalScore;
+
+            if (newStats.PsychologyScore >= 50) {
+                newStats.PersonalityType = PersonalityType.Melancholic;
+                return newStats;
+            }
+
+            if (newStats.AgreeableScore >= 50)
+            {
+                newStats.PersonalityType = PersonalityType.Phlegmatic;
+                return newStats;
+            }
+
+            if (newStats.AssertiveScore >= 50)
+            {
+                newStats.PersonalityType = PersonalityType.Sanguine;
+                return newStats;
+            }
+
+            if (newStats.AgreeableScore >= 50)
+            {
+                newStats.PersonalityType = PersonalityType.Choleric;
+                return newStats;
+            }
+
+            newStats.PersonalityType = PersonalityType.Melancholic;
+            return newStats;
+        }
     }
 }
 
